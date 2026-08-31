@@ -131,7 +131,10 @@ mod tests {
         cleanup("test_set_get.db");
         let mut store = KvStore::open(&path).unwrap();
         store.set("foo".to_string(), "bar".to_string()).unwrap();
-        assert_eq!(store.get("foo".to_string()).unwrap(), Some("bar".to_string()));
+        assert_eq!(
+            store.get("foo".to_string()).unwrap(),
+            Some("bar".to_string())
+        );
         cleanup("test_set_get.db");
     }
 
@@ -151,7 +154,10 @@ mod tests {
         let mut store = KvStore::open(&path).unwrap();
         store.set("foo".to_string(), "first".to_string()).unwrap();
         store.set("foo".to_string(), "second".to_string()).unwrap();
-        assert_eq!(store.get("foo".to_string()).unwrap(), Some("second".to_string()));
+        assert_eq!(
+            store.get("foo".to_string()).unwrap(),
+            Some("second".to_string())
+        );
         cleanup("test_overwrite.db");
     }
 
@@ -174,7 +180,10 @@ mod tests {
         store.set("foo".to_string(), "bar".to_string()).unwrap();
         store.delete("foo".to_string()).unwrap();
         store.set("foo".to_string(), "baz".to_string()).unwrap();
-        assert_eq!(store.get("foo".to_string()).unwrap(), Some("baz".to_string()));
+        assert_eq!(
+            store.get("foo".to_string()).unwrap(),
+            Some("baz".to_string())
+        );
         cleanup("test_delete_set.db");
     }
 
@@ -187,7 +196,10 @@ mod tests {
             store.set("foo".to_string(), "bar".to_string()).unwrap();
         }
         let mut store2 = KvStore::open(&path).unwrap();
-        assert_eq!(store2.get("foo".to_string()).unwrap(), Some("bar".to_string()));
+        assert_eq!(
+            store2.get("foo".to_string()).unwrap(),
+            Some("bar".to_string())
+        );
         cleanup("test_persist.db");
     }
 }
