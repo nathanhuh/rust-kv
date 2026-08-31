@@ -1,3 +1,4 @@
+mod page;
 mod store;
 use std::path::Path;
 use store::KvStore;
